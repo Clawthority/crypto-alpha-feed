@@ -1,0 +1,7 @@
+{
+  "name": "crypto-alpha-feed",
+  "version": "1.0.0",
+  "description": "Automated crypto intelligence aggregator",
+  "main": "feed.js",
+  "license": "MIT"
+}
