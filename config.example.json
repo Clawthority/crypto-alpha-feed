@@ -1,0 +1,71 @@
+{
+  "feeds": [
+    {
+      "name": "Ether.fi",
+      "url": "https://blog.ether.fi/rss",
+      "type": "rss"
+    },
+    {
+      "name": "EigenLayer",
+      "url": "https://blog.eigenlayer.xyz/rss",
+      "type": "rss"
+    },
+    {
+      "name": "Uniswap",
+      "url": "https://blog.uniswap.org/feed",
+      "type": "rss"
+    },
+    {
+      "name": "Hyperliquid",
+      "url": "https://hyperliquid.mirror.xyz/feed/atom",
+      "type": "atom"
+    },
+    {
+      "name": "zkSync",
+      "url": "https://zksync.mirror.xyz/feed/atom",
+      "type": "atom"
+    },
+    {
+      "name": "Airdrops.io",
+      "url": "https://airdrops.io/feed/",
+      "type": "rss"
+    },
+    {
+      "name": "DeFiLlama Hacks",
+      "url": "https://defillama.com/rss/hacks",
+      "type": "rss"
+    },
+    {
+      "name": "LayerZero",
+      "url": "https://blog.layerzero.network/rss",
+      "type": "rss"
+    },
+    {
+      "name": "Starknet",
+      "url": "https://www.starknet.io/blog/rss.xml",
+      "type": "rss"
+    },
+    {
+      "name": "Arbitrum",
+      "url": "https://medium.com/feed/@arbitrum",
+      "type": "rss"
+    },
+    {
+      "name": "Optimism",
+      "url": "https://optimism.mirror.xyz/feed/atom",
+      "type": "atom"
+    },
+    {
+      "name": "Base",
+      "url": "https://base.mirror.xyz/feed/atom",
+      "type": "atom"
+    }
+  ],
+  "keywords": {
+    "high_priority": ["airdrop", "token launch", "TGE", "claim", "eligibility", "snapshot"],
+    "medium_priority": ["mainnet", "incentive", "reward", "points", "season", "testnet"],
+    "low_priority": ["update", "partnership", "integration", "governance"]
+  },
+  "checkIntervalMinutes": 30,
+  "stateFile": "state.json"
+}
