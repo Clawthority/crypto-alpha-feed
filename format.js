@@ -69,6 +69,7 @@ function formatBatch(items) {
 }
 
 // ── Main: read JSON lines from stdin ────────────────────────────────
+const items = [];
 let buffer = '';
 
 process.stdin.setEncoding('utf8');
@@ -76,6 +77,13 @@ process.stdin.on('data', chunk => {
   buffer += chunk;
   const lines = buffer.split('\n');
   buffer = lines.pop(); // keep incomplete line
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+    try {
+      items.push(JSON.parse(trimmed));
+    } catch {}
+  }
 });
 
 process.stdin.on('end', () => {
@@ -93,20 +101,4 @@ process.stdin.on('end', () => {
   const header = `🔮 **Crypto Alpha Feed** — ${filtered.length} new signal${filtered.length > 1 ? 's' : ''}\n`;
   console.log(header);
   console.log(formatBatch(filtered));
-});
-
-const items = [];
-
-// Handle lines as they arrive (streaming)
-process.stdin.on('readable', () => {
-  let line;
-  while ((line = process.stdin.read()) !== null) {
-    for (const l of line.split('\n')) {
-      const trimmed = l.trim();
-      if (!trimmed) continue;
-      try {
-        items.push(JSON.parse(trimmed));
-      } catch {}
-    }
-  }
 });
