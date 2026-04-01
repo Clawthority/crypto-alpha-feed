@@ -38,6 +38,12 @@ The best crypto opportunities get crowded fast. By the time airdrops hit Twitter
 | Airdrops.io | RSS | Curated airdrop listings |
 | DeFiLlama | API | Tokenless high-TVL protocols |
 
+## Prerequisites
+
+- Node.js 18+
+- npm
+- A Telegram bot token (for delivery) — create one via [@BotFather](https://t.me/BotFather)
+
 ## Quick Start
 
 ```bash

@@ -3,5 +3,16 @@
   "version": "1.0.0",
   "description": "Automated crypto intelligence aggregator",
   "main": "feed.js",
-  "license": "MIT"
+  "scripts": {
+    "start": "node feed.js",
+    "once": "node feed.js --once",
+    "format": "node feed.js --once | node format.js",
+    "format:grouped": "node feed.js --once | node format.js --group-by-source",
+    "test:syntax": "node -c feed.js && node -c format.js && echo 'All OK'"
+  },
+  "keywords": ["crypto", "alpha", "rss", "airdrop", "defi", "intelligence", "web3"],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
 }
