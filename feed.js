@@ -54,8 +54,21 @@ function saveState(stateFile, state) {
   fs.writeFileSync(path.resolve(stateFile), JSON.stringify(state, null, 2));
 }
 
-// ── HTTP fetch with timeout & retry ─────────────────────────────────
-function fetch(url, timeoutMs = 15000, maxRedirects = 3) {
+// ── HTTP fetch with timeout, redirect following & retry ─────────────
+async function fetch(url, timeoutMs = 15000, maxRedirects = 3, maxRetries = 2) {
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    try {
+      return await _fetchOnce(url, timeoutMs, maxRedirects);
+    } catch (err) {
+      if (attempt === maxRetries) throw err;
+      const delay = 1000 * (attempt + 1);
+      console.error(`  Retry ${attempt + 1}/${maxRetries} for ${url} in ${delay}ms: ${err.message}`);
+      await new Promise(r => setTimeout(r, delay));
+    }
+  }
+}
+
+function _fetchOnce(url, timeoutMs = 15000, maxRedirects = 3) {
   return new Promise((resolve, reject) => {
     const mod = url.startsWith('https') ? https : http;
     const req = mod.get(url, { timeout: timeoutMs, headers: { 'User-Agent': 'CryptoAlphaFeed/1.0' } }, (res) => {
