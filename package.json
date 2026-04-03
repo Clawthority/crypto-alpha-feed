@@ -10,9 +10,20 @@
     "format:grouped": "node feed.js --once | node format.js --group-by-source",
     "test:syntax": "node -c feed.js && node -c format.js && echo 'All OK'"
   },
-  "keywords": ["crypto", "alpha", "rss", "airdrop", "defi", "intelligence", "web3"],
+  "keywords": [
+    "crypto",
+    "alpha",
+    "rss",
+    "airdrop",
+    "defi",
+    "intelligence",
+    "web3"
+  ],
   "license": "MIT",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "xml2js": "^0.6.2"
   }
 }
